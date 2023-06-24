@@ -9,5 +9,7 @@ class MemberAdmin(admin.ModelAdmin):
     search_fields = ("firstname", "lastname", "phone", "joined_date")
     list_filter = ("joined_date",)
 
+    prepopulated_fields = {"slug": ("firstname", "lastname")}
+
 
 admin.site.register(Member, MemberAdmin)
